@@ -14,7 +14,7 @@ class mydb
         $this->dbname = $dbname;
     }
 
-    public function connect()
+    public static function connect()
     {
         $conn = new mysqli($this->server, $this->user, $this->passwd, $this->dbname);
         if ($conn->connect_errno) {
@@ -25,8 +25,9 @@ class mydb
     }
     public function insert()
     {
-        $conn = new mydb($this->server, $this->user, $this->passwd, $this->dbname);
-        $conn->connect();
+        // $conn = new mydb($this->server, $this->user, $this->passwd, $this->dbname);
+        // $conn->connect();
+        mydb::connect();
         echo "connect";
         
     }
